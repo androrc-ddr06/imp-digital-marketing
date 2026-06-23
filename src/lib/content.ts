@@ -29,7 +29,7 @@ export type Stat = {
 };
 
 export const stats: Stat[] = [
-  { value: "700 → 2K+", label: "Followers grown", detail: "Roosters Rolling BBQ on Instagram" },
+  { value: "700 → 2K+", label: "Followers grown", detail: "Roosters Rolling BBQ, across all platforms" },
   { value: "3M+", label: "Video views", detail: "Across short-form campaigns" },
   { value: "4", label: "Websites launched", detail: "Live, client-ready builds" },
   { value: "100%", label: "Hands-on", detail: "Accounts handled personally" },
@@ -44,6 +44,11 @@ export type Service = {
   approach: string[];
   deliverables: string[];
   outcome: string;
+  /** Optional small pill shown in the service hero (e.g. "Powered by Claude"). */
+  badge?: string;
+  /** Optional "what we can build for you" examples — used to showcase a
+   *  capability-led service (like AI) without leaning on a past case study. */
+  useCases?: { title: string; body: string }[];
 };
 
 export const services: Service[] = [
@@ -66,7 +71,7 @@ export const services: Service[] = [
       "Monthly performance report",
     ],
     outcome:
-      "Roosters Rolling BBQ went from 700 to over 2,000 followers and racked up 3M+ video views with this exact system.",
+      "Roosters Rolling BBQ went from 700 to over 2,000 followers across platforms and racked up 3M+ video views with this exact system.",
   },
   {
     slug: "rebranding",
@@ -134,7 +139,34 @@ export const services: Service[] = [
     ],
     deliverables: ["AI assistant setup", "Automated follow-ups", "Workflow automations"],
     outcome:
-      "The modern edge we're adding to every engagement — so your business responds faster and runs leaner.",
+      "This is the new edge — and I build it on Claude, the AI from Anthropic trusted by leading companies. Be one of the first in your market to put it to work.",
+    badge: "Powered by Claude",
+    useCases: [
+      {
+        title: "AI email & message responder",
+        body: "An assistant that reads, drafts, and sends replies in your voice — so customers get answered in seconds, not days, even while you're on the job.",
+      },
+      {
+        title: "24/7 website chat assistant",
+        body: "A chatbot trained on your business that answers questions, qualifies leads, and books appointments around the clock.",
+      },
+      {
+        title: "Instant lead follow-up",
+        body: "The moment a lead comes in, AI texts and emails them — then keeps nurturing the cold ones until they're ready to buy.",
+      },
+      {
+        title: "Missed-call text-back",
+        body: "Miss a call? AI instantly texts the caller back so you never lose a customer to a voicemail again.",
+      },
+      {
+        title: "Review & reputation autopilot",
+        body: "AI asks happy customers for a review at the perfect moment and drafts thoughtful replies to every one that comes in.",
+      },
+      {
+        title: "Content & creative engine",
+        body: "Captions, posts, and ad copy drafted in your brand voice in minutes — so your marketing never stalls.",
+      },
+    ],
   },
   {
     slug: "paid-advertising",
@@ -178,7 +210,7 @@ export const caseStudies: CaseStudy[] = [
       "Our biggest and best client. We rebranded the business, took over social media, and built their website — turning a local BBQ spot into a content machine with serious reach.",
     services: ["Social Media Management", "Rebranding", "Website & Funnel Creation"],
     metrics: [
-      { value: "700 → 2K+", label: "Instagram followers" },
+      { value: "700 → 2K+", label: "Followers, all platforms" },
       { value: "3M+", label: "Total video views" },
       { value: "Full", label: "Brand + website rebuild" },
     ],
@@ -298,6 +330,21 @@ export const siteBuilds: SiteBuild[] = [
     blurb: "An appetizing site built to drive orders.",
     image: "/work/site-camaron.svg",
   },
+];
+
+// Logos of companies we've worked with — shown in a tile wall.
+// Each tile's background matches the logo's own background so it sits cleanly.
+export type ClientLogo = {
+  name: string;
+  src: string;
+  bg: string;
+};
+
+export const clientLogos: ClientLogo[] = [
+  { name: "Roosters Rolling BBQ", src: "/work/rebrand-roosters-after.png", bg: "#ede9e6" },
+  { name: "Mereces Jeremías — Accident Law Firm", src: "/clients/mereces-jeremias.png", bg: "#ffffff" },
+  { name: "Old Growth Sport Floors", src: "/clients/old-growth.png", bg: "#2c3134" },
+  { name: "The 10 Futbol", src: "/clients/the-ten.png", bg: "#060608" },
 ];
 
 export const navLinks = [

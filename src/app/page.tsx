@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
 import RebrandShowcase from "@/components/RebrandShowcase";
+import ClientLogos from "@/components/ClientLogos";
 import CTASection from "@/components/CTASection";
 import { caseStudies, rebrands, services, siteBuilds, stats, site } from "@/lib/content";
 
@@ -170,6 +171,11 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* Companies we've worked with                                      */}
+      {/* ---------------------------------------------------------------- */}
+      <ClientLogos className="bg-cream-dim/40 py-20 sm:py-28" />
 
       {/* ---------------------------------------------------------------- */}
       {/* Services                                                         */}

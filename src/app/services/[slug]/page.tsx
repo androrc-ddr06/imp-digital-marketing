@@ -69,6 +69,14 @@ export default async function ServicePage({
           <Reveal delay={200}>
             <p className="mt-6 max-w-xl text-lg italic text-cream/80">{service.tagline}</p>
           </Reveal>
+          {service.badge && (
+            <Reveal delay={260}>
+              <span className="mt-7 inline-flex items-center gap-2 rounded-full border border-sage/40 bg-cream/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-cream">
+                <Mark title="" className="h-3.5 w-3.5 text-sage" />
+                {service.badge}
+              </span>
+            </Reveal>
+          )}
         </Container>
       </section>
 
@@ -124,6 +132,33 @@ export default async function ServicePage({
               </div>
             </Reveal>
           </div>
+
+          {/* What we can build for you (capability-led services like AI) */}
+          {service.useCases && service.useCases.length > 0 && (
+            <div className="mt-20">
+              <Reveal className="max-w-2xl">
+                <p className="eyebrow text-forest/60">What we can build for you</p>
+                <h2 className="font-display text-display-sm mt-4 text-forest">
+                  Real ways to put it to work.
+                </h2>
+                <p className="mt-4 leading-relaxed text-forest/70">
+                  A few of the systems I can set up for your business — tailored to how you
+                  actually operate.
+                </p>
+              </Reveal>
+              <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {service.useCases.map((u, i) => (
+                  <Reveal key={u.title} delay={(i % 3) * 80}>
+                    <div className="h-full rounded-2xl border border-forest/12 bg-cream-dim/40 p-7 transition-colors duration-500 hover:bg-cream-dim/70">
+                      <Mark title="" className="h-7 w-7 text-sage" />
+                      <h3 className="font-display mt-5 text-xl text-forest">{u.title}</h3>
+                      <p className="mt-3 text-sm leading-relaxed text-forest/70">{u.body}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Next service */}
           <Reveal>

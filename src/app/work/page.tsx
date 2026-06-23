@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import WorkCard from "@/components/WorkCard";
 import SectionHeading from "@/components/SectionHeading";
 import RebrandShowcase from "@/components/RebrandShowcase";
+import ClientLogos from "@/components/ClientLogos";
 import Button from "@/components/Button";
 import Mark from "@/components/Mark";
 import CTASection from "@/components/CTASection";
@@ -141,6 +142,13 @@ export default function WorkPage() {
           </Container>
         </section>
       )}
+
+      {/* Companies we've worked with */}
+      <ClientLogos
+        className="py-16 sm:py-20"
+        title="More companies we've worked with."
+        intro="A growing roster of businesses across food, law, sports, and the trades."
+      />
 
       {/* Websites */}
       <section className="bg-cream-dim/40 py-20 sm:py-28">

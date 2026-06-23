@@ -70,7 +70,7 @@ export default function AboutPage() {
                   My flagship client, Roosters Rolling BBQ, is the clearest proof of what
                   that focus produces. We rebranded the business, took over their social,
                   and built their website — growing them from{" "}
-                  <span className="text-forest">700 to over 2,000 followers</span> and past{" "}
+                  <span className="text-forest">700 to over 2,000 followers across platforms</span> and past{" "}
                   <span className="text-forest">3 million video views.</span>
                 </p>
                 <p>
