@@ -172,7 +172,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "roosters-rolling-bbq",
     name: "Roosters Rolling BBQ",
-    location: "Bakersfield, California",
+    location: "Vacaville, California",
     category: "Flagship Client",
     summary:
       "Our biggest and best client. We rebranded the business, took over social media, and built their website — turning a local BBQ spot into a content machine with serious reach.",
