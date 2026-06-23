@@ -1,26 +1,169 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------ */
+/*  I&P Digital Marketing — brand design tokens                         */
+/* ------------------------------------------------------------------ */
+@theme {
+  /* Core palette (from the brand kit) */
+  --color-forest: #0b2222;
+  --color-forest-deep: #061616;
+  --color-moss: #16332f;
+  --color-sage: #8aa399;
+  --color-cream: #ede9e6;
+  --color-cream-dim: #d9d3cc;
+  --color-ink: #191919;
+
+  /* Type — mapped to the local fonts loaded in fonts.ts */
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+
+  /* Easing */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-cream);
+  --foreground: var(--color-forest);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  border-color: color-mix(in srgb, var(--color-forest) 12%, transparent);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-feature-settings: "kern", "liga";
+  letter-spacing: -0.011em;
+}
+
+::selection {
+  background: var(--color-forest);
+  color: var(--color-cream);
+}
+
+/* Display serif helper */
+.font-display {
+  font-family: var(--font-serif), Georgia, serif;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+/* Tracked-out label / eyebrow */
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Fluid display sizes */
+.text-display {
+  font-size: clamp(2.6rem, 6.5vw, 5.6rem);
+  line-height: 0.98;
+}
+.text-display-sm {
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  line-height: 1.04;
+}
+
+/* Thin animated underline link */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s var(--ease-out-soft);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Scroll-reveal                                                      */
+/* ------------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.8s var(--ease-out-soft),
+    transform 0.8s var(--ease-out-soft);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Subtle texture on dark sections */
+.bg-grain {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    color-mix(in srgb, var(--color-cream) 7%, transparent) 1px,
+    transparent 0
+  );
+  background-size: 22px 22px;
+}
+
+/* Marquee for client domains */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+/* Slow spin for the compass mark */
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 60s linear infinite;
 }

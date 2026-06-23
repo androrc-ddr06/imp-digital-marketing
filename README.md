@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# I&P Digital Marketing — Alejandro Rodriguez
 
-## Getting Started
+The personal-brand and portfolio site for **Alejandro Rodriguez**, founder of
+**I&P Digital Marketing**. Built with Next.js 16, TypeScript, and Tailwind CSS v4,
+and ready to deploy on Vercel.
 
-First, run the development server:
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # then add your Formspree ID (see below)
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Other scripts:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # production build
+npm run start   # serve the production build
+npm run lint    # eslint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+src/
+├── app/
+│   ├── layout.tsx              # fonts, nav, footer, global metadata
+│   ├── page.tsx                # Home
+│   ├── about/                  # About Alejandro + I&P
+│   ├── services/               # Services overview
+│   │   └── [slug]/             # One page per service (generated)
+│   ├── work/                   # Portfolio + flagship case study
+│   ├── contact/                # Two-question contact form
+│   ├── icon.svg                # Favicon (compass mark)
+│   ├── sitemap.ts / robots.ts  # SEO
+│   └── globals.css             # Brand tokens + base styles
+├── components/                 # Nav, Footer, Logo, Mark, cards, form, etc.
+└── lib/content.ts              # ← ALL site copy, services, clients, stats
+public/
+├── brand/                      # Logos + compass symbol (from the brand kit)
+├── fonts/                      # BDO Grotesk + MFB Oldstyle
+└── work/                       # Project cover images (see work/README.md)
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Editing content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Almost everything you'd want to change lives in **`src/lib/content.ts`**:
+services, the six service pages, client case studies, the websites list, stats,
+contact email, and social links. Edit the text there and the pages update.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To swap the placeholder project images for real screenshots, see
+[`public/work/README.md`](public/work/README.md).
 
-## Deploy on Vercel
+## Contact form (Formspree)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The contact form posts to [Formspree](https://formspree.io). To receive messages:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Create a free form at https://formspree.io and set the destination email to
+   `andro.rc06@gmail.com`.
+2. Copy the form ID from the endpoint `https://formspree.io/f/XXXXXXXX` → `XXXXXXXX`.
+3. Add it to `.env.local`:
+   ```
+   NEXT_PUBLIC_FORMSPREE_ID=XXXXXXXX
+   ```
+4. On Vercel, add the same variable under **Project → Settings → Environment Variables**.
+
+Until an ID is set, the form shows a friendly "not connected yet" message instead
+of sending.
+
+## Deploy to Vercel
+
+1. Push this repo to GitHub (already set up).
+2. Go to https://vercel.com/new and import the repository.
+3. Add the `NEXT_PUBLIC_FORMSPREE_ID` environment variable.
+4. Deploy. Vercel auto-detects Next.js — no extra config needed.
+5. (Optional) Add your custom domain in **Project → Settings → Domains**.
+
+## Brand
+
+- **Colors:** Forest `#0B2222`, Cream `#EDE9E6`, Ink `#191919`, Sage accent.
+- **Fonts:** MFB Oldstyle (display serif) + BDO Grotesk (sans).
+- **Mark:** the four-point compass symbol.
+
+All assets are from the official I&P Digital Marketing brand kit.
