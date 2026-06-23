@@ -6,15 +6,18 @@ type MarkProps = {
 /**
  * The I&P compass / 4-point star symbol.
  * Uses currentColor so it can be tinted via Tailwind text-* utilities.
+ * Pass title="" to mark it purely decorative (hidden from assistive tech).
  */
 export default function Mark({ className, title = "I&P Digital Marketing" }: MarkProps) {
+  const decorative = title.trim() === "";
   return (
     <svg
       viewBox="0 0 271.49 268.38"
-      role="img"
-      aria-label={title}
       className={className}
       fill="currentColor"
+      {...(decorative
+        ? { "aria-hidden": true }
+        : { role: "img", "aria-label": title })}
     >
       <path d="M151.42,113.07c-6.15,6.04-12.14,12.23-18.81,19.01V47.81c.27-.08,.54-.15,.79-.23,.43,1.14,.92,2.25,1.29,3.41,5.93,19.12,11.83,38.27,17.85,57.37,.63,2.01,.39,3.22-1.12,4.7Z" />
       <path d="M216.83,133.25c-1.36,.48-2.7,1.02-4.09,1.45-18.68,5.81-37.37,11.64-56.1,17.32-2.5,.76-3.68,2-4.42,4.43-5.62,18.49-11.39,36.94-17.12,55.4-.48,1.57-1.04,3.1-1.56,4.66-.36-.09-.74-.18-1.11-.27v-83.71c-1.23,.97-1.97,1.45-2.6,2.06-5.54,5.51-11,11.09-16.63,16.48-.91,.88-2.8,1.6-3.9,1.28-19.89-6.01-39.72-12.18-59.56-18.33-.64-.2-1.22-.59-1.74-1.58H216.58c.09,.27,.16,.54,.25,.8Z" />

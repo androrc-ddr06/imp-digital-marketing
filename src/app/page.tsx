@@ -5,8 +5,9 @@ import Mark from "@/components/Mark";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
+import RebrandShowcase from "@/components/RebrandShowcase";
 import CTASection from "@/components/CTASection";
-import { caseStudies, services, siteBuilds, stats, site } from "@/lib/content";
+import { caseStudies, rebrands, services, siteBuilds, stats, site } from "@/lib/content";
 
 const featured = caseStudies.find((c) => c.featured)!;
 
@@ -23,7 +24,7 @@ export default function Home() {
         />
         <Container className="relative">
           <Reveal>
-            <p className="eyebrow text-forest/50">
+            <p className="eyebrow text-forest/60">
               {site.company} · {site.location}
             </p>
           </Reveal>
@@ -101,7 +102,7 @@ export default function Home() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-forest/12 shadow-[0_30px_80px_-40px_rgba(11,34,34,0.5)]">
                 <Image
                   src={featured.image}
-                  alt="Roosters Rolling BBQ — brand and social work"
+                  alt="Roosters Rolling BBQ rebrand — branded apron, taco packaging, and cap"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
@@ -141,6 +142,31 @@ export default function Home() {
                 )}
               </div>
             </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* Before & After teaser                                            */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="py-20 sm:py-28">
+        <Container>
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <SectionHeading
+              eyebrow="Before &amp; After"
+              title="See the transformation."
+              intro="The clearest proof of a rebrand: what the business looked like before, next to what we built after."
+            />
+            <Reveal>
+              <Button href="/work" variant="ghost" className="text-forest">
+                See all rebrands
+              </Button>
+            </Reveal>
+          </div>
+          <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-10">
+            {rebrands.map((rebrand) => (
+              <RebrandShowcase key={rebrand.slug} rebrand={rebrand} compact />
+            ))}
           </div>
         </Container>
       </section>

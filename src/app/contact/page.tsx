@@ -23,7 +23,7 @@ export default function ContactPage() {
           {/* Left: pitch */}
           <div>
             <Reveal>
-              <p className="eyebrow text-forest/50">Start a project</p>
+              <p className="eyebrow text-forest/60">Start a project</p>
             </Reveal>
             <Reveal delay={80}>
               <h1 className="font-display text-display-sm mt-6 text-forest">

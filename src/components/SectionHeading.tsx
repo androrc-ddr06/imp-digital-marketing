@@ -22,7 +22,7 @@ export default function SectionHeading({
       className={`max-w-2xl ${align === "center" ? "mx-auto text-center" : ""}`}
     >
       {eyebrow && (
-        <p className={`eyebrow ${isCream ? "text-sage" : "text-forest/50"}`}>{eyebrow}</p>
+        <p className={`eyebrow ${isCream ? "text-sage" : "text-forest/60"}`}>{eyebrow}</p>
       )}
       <h2
         className={`font-display text-display-sm mt-4 ${

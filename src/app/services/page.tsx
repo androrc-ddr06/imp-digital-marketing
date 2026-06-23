@@ -22,7 +22,7 @@ export default function ServicesPage() {
         />
         <Container className="relative">
           <Reveal>
-            <p className="eyebrow text-forest/50">Services</p>
+            <p className="eyebrow text-forest/60">Services</p>
           </Reveal>
           <Reveal delay={80}>
             <h1 className="font-display text-display mt-6 max-w-3xl text-forest">

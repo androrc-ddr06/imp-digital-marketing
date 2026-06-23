@@ -7,7 +7,7 @@ export default function NotFound() {
     <section className="grid min-h-[70vh] place-items-center py-32">
       <Container className="text-center">
         <Mark title="" className="mx-auto h-14 w-14 text-sage" />
-        <p className="eyebrow mt-8 text-forest/50">404</p>
+        <p className="eyebrow mt-8 text-forest/60">404</p>
         <h1 className="font-display text-display-sm mt-4 text-forest">
           This page wandered off.
         </h1>

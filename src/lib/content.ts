@@ -183,7 +183,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "Full", label: "Brand + website rebuild" },
     ],
     url: "https://www.roostersrollingbbq.com/",
-    image: "/work/roosters.svg",
+    image: "/work/rebrand-roosters-mockup-1.jpg",
     featured: true,
   },
   {
@@ -202,7 +202,62 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "Rebranding for a specialist floor restoration company — a clean, premium identity that reflects craftsmanship and reliability.",
     services: ["Rebranding"],
-    image: "/work/lillard.svg",
+    image: "/work/rebrand-lillard-mockup-1.jpg",
+  },
+];
+
+// Before / after rebrand showcases — paired with the case studies above.
+export type RebrandImage = {
+  src: string;
+  /** Background tint behind the (contained) logo, to match the source art. */
+  bg: string;
+};
+
+export type Rebrand = {
+  slug: string;
+  name: string;
+  blurb: string;
+  before: RebrandImage;
+  after: RebrandImage;
+  mockups: { src: string; alt: string }[];
+};
+
+export const rebrands: Rebrand[] = [
+  {
+    slug: "roosters-rolling-bbq",
+    name: "Roosters Rolling BBQ",
+    blurb:
+      "We retired the busy, hard-to-read mark and built a bold, modern identity — a clean rooster icon and confident wordmark that looks just as sharp on a cap as it does on a billboard.",
+    before: { src: "/work/rebrand-roosters-before.png", bg: "#e9eae9" },
+    after: { src: "/work/rebrand-roosters-after.png", bg: "#ede9e6" },
+    mockups: [
+      {
+        src: "/work/rebrand-roosters-mockup-1.jpg",
+        alt: "Roosters Rolling BBQ branded apron, taco packaging, and cap",
+      },
+      {
+        src: "/work/rebrand-roosters-mockup-2.jpg",
+        alt: "Roosters Rolling BBQ A-frame sign and branded apron",
+      },
+    ],
+  },
+  {
+    slug: "lillard-restoration-services",
+    name: "Lillard Restoration Services",
+    blurb:
+      "We replaced the generic clip-art logo and cramped type with a sharp, premium identity — a custom mark and clean system that signals craftsmanship across uniforms, badges, and the web.",
+    before: { src: "/work/rebrand-lillard-before.png", bg: "#20252b" },
+    after: { src: "/work/rebrand-lillard-after.jpg", bg: "#ececec" },
+    mockups: [
+      {
+        src: "/work/rebrand-lillard-mockup-1.jpg",
+        alt: "Lillard Restoration branded polos and employee ID badge",
+      },
+      {
+        src: "/work/rebrand-lillard-mockup-2.jpg",
+        alt: "Lillard Restoration website and brand presentation",
+      },
+    ],
   },
 ];
 

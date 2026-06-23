@@ -35,7 +35,7 @@ export default function WorkCard({ study }: { study: CaseStudy }) {
         </div>
         <h3 className="font-display mt-2 text-2xl text-forest">{study.name}</h3>
         {study.location && (
-          <p className="mt-1 text-sm text-forest/50">{study.location}</p>
+          <p className="mt-1 text-sm text-forest/60">{study.location}</p>
         )}
         <p className="mt-3 text-sm leading-relaxed text-forest/65">{study.summary}</p>
         <div className="mt-5 flex flex-wrap gap-2">

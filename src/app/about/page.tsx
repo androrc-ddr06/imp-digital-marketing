@@ -38,7 +38,7 @@ export default function AboutPage() {
         />
         <Container className="relative">
           <Reveal>
-            <p className="eyebrow text-forest/50">About</p>
+            <p className="eyebrow text-forest/60">About</p>
           </Reveal>
           <Reveal delay={80}>
             <h1 className="font-display text-display mt-6 max-w-4xl text-forest">

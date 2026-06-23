@@ -78,7 +78,7 @@ export default async function ServicePage({
           <div className="grid gap-14 lg:grid-cols-[1fr_1.2fr]">
             {/* The problem */}
             <Reveal>
-              <p className="eyebrow text-forest/50">The problem</p>
+              <p className="eyebrow text-forest/60">The problem</p>
               <p className="mt-5 font-display text-2xl leading-snug text-forest sm:text-3xl">
                 {service.problem}
               </p>
@@ -86,7 +86,7 @@ export default async function ServicePage({
 
             {/* The approach */}
             <Reveal delay={120}>
-              <p className="eyebrow text-forest/50">How I do it</p>
+              <p className="eyebrow text-forest/60">How I do it</p>
               <ul className="mt-6 space-y-5">
                 {service.approach.map((item) => (
                   <li key={item} className="flex gap-4">
@@ -102,7 +102,7 @@ export default async function ServicePage({
           <div className="mt-16 grid gap-6 md:grid-cols-[1.4fr_1fr]">
             <Reveal>
               <div className="rounded-2xl border border-forest/12 bg-cream-dim/40 p-8">
-                <p className="eyebrow text-forest/50">The result</p>
+                <p className="eyebrow text-forest/60">The result</p>
                 <p className="mt-4 text-lg leading-relaxed text-forest/85">
                   {service.outcome}
                 </p>
@@ -110,7 +110,7 @@ export default async function ServicePage({
             </Reveal>
             <Reveal delay={100}>
               <div className="rounded-2xl border border-forest/12 p-8">
-                <p className="eyebrow text-forest/50">What you get</p>
+                <p className="eyebrow text-forest/60">What you get</p>
                 <ul className="mt-4 space-y-3">
                   {service.deliverables.map((d) => (
                     <li
@@ -129,7 +129,7 @@ export default async function ServicePage({
           <Reveal>
             <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-forest/12 pt-8 sm:flex-row sm:items-center">
               <div>
-                <p className="text-sm text-forest/50">Next service</p>
+                <p className="text-sm text-forest/60">Next service</p>
                 <Link
                   href={`/services/${next.slug}`}
                   className="font-display text-2xl text-forest link-underline"
