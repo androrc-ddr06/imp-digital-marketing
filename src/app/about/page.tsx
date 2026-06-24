@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
 import Mark from "@/components/Mark";
@@ -37,21 +38,47 @@ export default function AboutPage() {
           className="pointer-events-none absolute -right-20 -top-6 h-[420px] w-[420px] text-forest/[0.04]"
         />
         <Container className="relative">
-          <Reveal>
-            <p className="eyebrow text-forest/60">About</p>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1 className="font-display text-display mt-6 max-w-4xl text-forest">
-              Hi, I&apos;m {site.person.split(" ")[0]}.
-            </h1>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-forest/70">
-              I founded {site.company} to give local businesses the kind of marketing
-              usually reserved for big brands — sharp branding, content that travels, and
-              websites that actually bring in customers.
-            </p>
-          </Reveal>
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+            <div>
+              <Reveal>
+                <p className="eyebrow text-forest/60">About</p>
+              </Reveal>
+              <Reveal delay={80}>
+                <h1 className="font-display text-display mt-6 max-w-4xl text-forest">
+                  Hi, I&apos;m {site.person.split(" ")[0]}.
+                </h1>
+              </Reveal>
+              <Reveal delay={160}>
+                <p className="mt-7 max-w-2xl text-lg leading-relaxed text-forest/70">
+                  I founded {site.company} to give local businesses the kind of marketing
+                  usually reserved for big brands — sharp branding, content that travels, and
+                  websites that actually bring in customers.
+                </p>
+              </Reveal>
+              <Reveal delay={220}>
+                <a
+                  href={`https://www.instagram.com/${site.instagramHandle}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline mt-7 inline-flex items-center gap-2 text-sm text-forest/70 hover:text-forest"
+                >
+                  <span aria-hidden>↗</span> Follow along @{site.instagramHandle}
+                </a>
+              </Reveal>
+            </div>
+            <Reveal delay={200}>
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl border border-forest/12 bg-moss shadow-[0_30px_70px_-40px_rgba(11,34,34,0.5)]">
+                <Image
+                  src="/about/alejandro-portrait.jpg"
+                  alt={`${site.person}, founder of ${site.company}`}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 38vw"
+                  className="object-cover object-center"
+                />
+              </div>
+            </Reveal>
+          </div>
         </Container>
       </section>
 
@@ -88,6 +115,16 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal delay={120}>
+              <div className="space-y-6">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-forest/12 bg-moss shadow-[0_24px_60px_-40px_rgba(11,34,34,0.5)]">
+                <Image
+                  src="/about/alejandro-candid.jpg"
+                  alt={`${site.person} on location for a client shoot`}
+                  fill
+                  sizes="(max-width: 1024px) 90vw, 34vw"
+                  className="object-cover object-center"
+                />
+              </div>
               <div className="rounded-2xl border border-forest/12 bg-cream-dim/40 p-8">
                 <Mark title="" className="h-10 w-10 text-forest" />
                 <p className="mt-6 font-display text-2xl leading-snug text-forest">
@@ -117,10 +154,24 @@ export default function AboutPage() {
                       </a>
                     </dd>
                   </div>
+                  <div className="flex justify-between gap-4">
+                    <dt className="text-forest/55">Instagram</dt>
+                    <dd>
+                      <a
+                        href={`https://www.instagram.com/${site.instagramHandle}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-underline text-forest"
+                      >
+                        @{site.instagramHandle}
+                      </a>
+                    </dd>
+                  </div>
                 </dl>
                 <div className="mt-8">
                   <Button href="/contact">Work with me</Button>
                 </div>
+              </div>
               </div>
             </Reveal>
           </div>

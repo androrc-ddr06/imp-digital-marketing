@@ -20,12 +20,22 @@ export default function Footer() {
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-cream/65">
               {site.description}
             </p>
-            <a
-              href={`mailto:${site.email}`}
-              className="link-underline mt-6 inline-block text-sm text-cream/85"
-            >
-              {site.email}
-            </a>
+            <div className="mt-6 flex flex-col gap-2 text-sm">
+              <a
+                href={`mailto:${site.email}`}
+                className="link-underline inline-block text-cream/85"
+              >
+                {site.email}
+              </a>
+              <a
+                href={`https://www.instagram.com/${site.instagramHandle}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline inline-block text-cream/85"
+              >
+                Instagram @{site.instagramHandle}
+              </a>
+            </div>
           </div>
 
           {/* Nav */}

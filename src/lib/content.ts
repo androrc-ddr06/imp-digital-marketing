@@ -13,8 +13,9 @@ export const site = {
     "I&P Digital Marketing is a boutique studio led by Alejandro Rodriguez — building brands, content, and funnels that turn attention into revenue.",
   location: "California, USA",
   url: "https://impdigitalmarketing.com",
+  instagramHandle: "androrc06",
   socials: [
-    { label: "Instagram", href: "https://www.instagram.com/" },
+    { label: "Instagram", href: "https://www.instagram.com/androrc06" },
     { label: "Email", href: "mailto:andro.rc06@gmail.com" },
   ],
   // Create a form at https://formspree.io and put its id in .env.local
