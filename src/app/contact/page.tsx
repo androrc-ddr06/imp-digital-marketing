@@ -3,7 +3,10 @@ import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
 import Mark from "@/components/Mark";
 import ContactForm from "@/components/ContactForm";
-import { site, services } from "@/lib/content";
+import FAQ from "@/components/FAQ";
+import JsonLd from "@/components/JsonLd";
+import { site, services, faqs } from "@/lib/content";
+import { faqLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -13,6 +16,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
+    <>
     <section className="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
       <Mark
         title=""
@@ -47,6 +51,24 @@ export default function ContactPage() {
                   <Mark title="" className="h-4 w-4 text-sage" />
                   <span className="link-underline">{site.email}</span>
                 </a>
+                {site.phone && (
+                  <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                    <a
+                      href={`tel:${site.phone}`}
+                      className="flex items-center gap-3 text-forest/80 hover:text-forest"
+                    >
+                      <Mark title="" className="h-4 w-4 text-sage" />
+                      <span className="link-underline">Call {site.phoneDisplay}</span>
+                    </a>
+                    <a
+                      href={`sms:${site.phone}`}
+                      className="flex items-center gap-3 text-forest/80 hover:text-forest"
+                    >
+                      <Mark title="" className="h-4 w-4 text-sage" />
+                      <span className="link-underline">Text me</span>
+                    </a>
+                  </div>
+                )}
                 <p className="text-sm text-forest/55">
                   Based in {site.location} · Working with clients everywhere.
                 </p>
@@ -79,5 +101,9 @@ export default function ContactPage() {
         </div>
       </Container>
     </section>
+
+      <FAQ className="border-t border-forest/10 py-20 sm:py-28" />
+      <JsonLd data={faqLd(faqs)} />
+    </>
   );
 }

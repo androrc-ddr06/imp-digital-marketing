@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { sans, serif } from "./fonts";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/lib/content";
+import { organizationLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -46,9 +50,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable} h-full`}>
       <body className="flex min-h-full flex-col">
+        <JsonLd data={organizationLd()} />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -7,6 +7,7 @@ import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
 import RebrandShowcase from "@/components/RebrandShowcase";
 import ClientLogos from "@/components/ClientLogos";
+import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 import { caseStudies, rebrands, services, siteBuilds, stats, site } from "@/lib/content";
 
@@ -250,6 +251,9 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      {/* Testimonials — renders only once real quotes exist in content.ts */}
+      <Testimonials className="bg-cream-dim/40 py-20 sm:py-28" />
 
       <CTASection />
     </>

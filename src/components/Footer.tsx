@@ -35,6 +35,16 @@ export default function Footer() {
               >
                 Instagram @{site.instagramHandle}
               </a>
+              {site.phone && (
+                <span className="flex flex-wrap gap-x-4">
+                  <a href={`tel:${site.phone}`} className="link-underline text-cream/85">
+                    Call {site.phoneDisplay}
+                  </a>
+                  <a href={`sms:${site.phone}`} className="link-underline text-cream/85">
+                    Text
+                  </a>
+                </span>
+              )}
             </div>
           </div>
 

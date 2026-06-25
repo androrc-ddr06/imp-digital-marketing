@@ -12,8 +12,15 @@ export const site = {
   description:
     "I&P Digital Marketing is a boutique studio led by Alejandro Rodriguez — building brands, content, and funnels that turn attention into revenue.",
   location: "California, USA",
-  url: "https://impdigitalmarketing.com",
+  // Canonical site URL. Pointed at the live Vercel deployment for now; switch
+  // to the custom domain (https://impdigitalmarketing.com) once it's connected.
+  url: "https://imp-digital-marketing.vercel.app",
   instagramHandle: "androrc06",
+  // Phone for click-to-call / text. Leave both empty to hide the call/text
+  // links everywhere. `phone` is E.164 (e.g. "+17075551234"), `phoneDisplay`
+  // is what's shown (e.g. "(707) 555-1234").
+  phone: "",
+  phoneDisplay: "",
   socials: [
     { label: "Instagram", href: "https://www.instagram.com/androrc06" },
     { label: "Email", href: "mailto:andro.rc06@gmail.com" },
@@ -346,6 +353,50 @@ export const clientLogos: ClientLogo[] = [
   { name: "Mereces Jeremías — Accident Law Firm", src: "/clients/mereces-jeremias.png", bg: "#ffffff" },
   { name: "Old Growth Sport Floors", src: "/clients/old-growth.png", bg: "#2c3134" },
   { name: "The 10 Futbol", src: "/clients/the-ten.png", bg: "#060608" },
+];
+
+// Client testimonials. Empty for now — the Testimonials section renders
+// nothing until at least one real quote is added here. No placeholders ship.
+export type Testimonial = {
+  quote: string;
+  name: string;
+  /** Their business / title, e.g. "Owner, Roosters Rolling BBQ". */
+  role: string;
+  /** Optional 1–5 star rating. */
+  rating?: number;
+};
+
+export const testimonials: Testimonial[] = [];
+
+// Frequently asked questions, shown on the contact page (and surfaced to
+// Google as FAQ structured data). Editable drafts — tweak the wording freely.
+export type FAQ = { q: string; a: string };
+
+export const faqs: FAQ[] = [
+  {
+    q: "What's it like working together?",
+    a: "You work directly with me — not a junior or a faceless team. We start with a quick call about what you're struggling with and what success looks like, I scope the work, and from there I handle the strategy, the creative, and the day-to-day myself.",
+  },
+  {
+    q: "How fast can we get started, and how long do things take?",
+    a: "Most projects kick off within a week. A rebrand or a new website typically takes 2–4 weeks depending on scope; social media management and AI automations are ongoing once they're set up. I'll give you a realistic timeline before we begin — no surprises.",
+  },
+  {
+    q: "Who do you work with?",
+    a: "Local and small businesses that are good at what they do but aren't getting the attention they deserve — food, trades, sports, law, and community organizations among them. If you take pride in your work and want a brand and presence that finally matches it, we'll get along.",
+  },
+  {
+    q: "How much does it cost?",
+    a: "Every project is scoped to your goals, so there's no one-size-fits-all price. Tell me what you're trying to fix and I'll put together a clear, honest quote — and I'll tell you straight if I'm not the right fit.",
+  },
+  {
+    q: "Do I have to be local to work with you?",
+    a: "No. I'm based in California and love working with local businesses, but branding, websites, social, and AI automation all happen remotely — I work with clients wherever they are.",
+  },
+  {
+    q: "How does the AI side actually help my business?",
+    a: "It removes the busywork that loses you customers — instant lead follow-up, missed-call text-backs, a 24/7 chat assistant, and content drafted in your voice. Built on Claude, it answers prospects in seconds instead of days, so fewer leads slip through the cracks.",
+  },
 ];
 
 export const navLinks = [

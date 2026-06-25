@@ -6,7 +6,9 @@ import Reveal from "@/components/Reveal";
 import Button from "@/components/Button";
 import Mark from "@/components/Mark";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
 import { services } from "@/lib/content";
+import { serviceLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -40,6 +42,7 @@ export default async function ServicePage({
 
   return (
     <>
+      <JsonLd data={serviceLd(service)} />
       {/* Hero */}
       <section className="relative overflow-hidden bg-forest text-cream">
         <div className="bg-grain absolute inset-0" />
