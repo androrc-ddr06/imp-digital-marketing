@@ -17,17 +17,17 @@ export const site = {
   url: "https://imp-digital-marketing.vercel.app",
   instagramHandle: "androrc06",
   // Phone for click-to-call / text. Leave both empty to hide the call/text
-  // links everywhere. `phone` is E.164 (e.g. "+17075551234"), `phoneDisplay`
-  // is what's shown (e.g. "(707) 555-1234").
-  phone: "",
-  phoneDisplay: "",
+  // links everywhere. `phone` is E.164, `phoneDisplay` is what's shown.
+  phone: "+17075648658",
+  phoneDisplay: "(707) 564-8658",
   socials: [
     { label: "Instagram", href: "https://www.instagram.com/androrc06" },
     { label: "Email", href: "mailto:andro.rc06@gmail.com" },
   ],
-  // Create a form at https://formspree.io and put its id in .env.local
-  // as NEXT_PUBLIC_FORMSPREE_ID. Falls back to a placeholder until then.
-  formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "your-form-id",
+  // Formspree form ID (https://formspree.io/f/<id>). It's a public ID (it ends
+  // up in client JS either way), so it's safe to keep here. An env var
+  // NEXT_PUBLIC_FORMSPREE_ID still overrides it if set.
+  formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "xkolrvkw",
 };
 
 export type Stat = {
